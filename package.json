@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "serve -l 5050 dist",
     "start": "webpack-dev-server --mode development --hot --open",
-    "build": "webpack --progress --mode production"
+    "build": "rm -rf dist && webpack --progress --mode production --devtool eval"
   },
   "keywords": [
     "react",

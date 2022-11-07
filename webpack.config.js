@@ -62,10 +62,19 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [{ from: 'public', to: '.' }],
+      patterns: [
+        {
+          from: 'public',
+          to: '.',
+          globOptions: {
+            gitignore: true,
+            ignore: [path.join(__dirname, 'public/index.html')],
+          },
+        },
+      ],
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'public/index.html',
     }),
   ],
 };
