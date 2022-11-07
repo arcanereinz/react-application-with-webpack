@@ -4,7 +4,6 @@
   },
   "compilerOptions": {
     "sourceMap": true,
-    "baseUrl": "./src",
     "jsx": "react-jsx",
     "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -21,7 +20,8 @@
     "noEmit": true,
     "noImplicitAny": false,
     "experimentalDecorators": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "."
   },
   "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }

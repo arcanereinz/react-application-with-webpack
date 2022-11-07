@@ -1,12 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'bundle.[contenthash].js',
+    filename: 'static/bundle.[contenthash].js',
     clean: true,
   },
   devtool: 'source-map',
@@ -32,17 +33,26 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
     ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-  },
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     compress: true,
@@ -76,5 +86,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'public/index.html',
     }),
+    new MiniCssExtractPlugin({ filename: 'static/[name].[contenthash].css' }),
   ],
 };
