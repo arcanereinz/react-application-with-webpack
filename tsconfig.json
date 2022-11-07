@@ -1,0 +1,27 @@
+{
+  "typeAcquisition": {
+    "include": ["jest"]
+  },
+  "compilerOptions": {
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "jsx": "react-jsx",
+    "target": "ES6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
+}
