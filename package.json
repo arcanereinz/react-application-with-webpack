@@ -4,9 +4,9 @@
   "description": "Create react application from scratch. ",
   "main": "index.tsx",
   "scripts": {
-    "serve": "serve -l 5050 dist",
+    "serve": "serve -l 5050 .build",
     "start": "webpack-dev-server --mode development --hot --open",
-    "build": "rm -rf dist && webpack --progress --mode production --devtool eval",
+    "build": "rm -rf .build && webpack --progress --mode production --devtool eval",
     "jest-clear": "jest --clearCache",
     "test": "jest"
   },
